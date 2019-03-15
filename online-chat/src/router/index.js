@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Welcome from '@/components/Welcome'
 
 Vue.use(Router)
 
@@ -9,7 +8,13 @@ export default new Router({
     {
       path: '/',
       name: 'Welcome',
-      component: Welcome
+      component: () => import('@/components/Welcome.vue')
+    },
+    {
+      path: '/chat',
+      name:'Chat',
+      component: () => import('@/components/Chat.vue'),
+      props: true
     }
   ]
 })
